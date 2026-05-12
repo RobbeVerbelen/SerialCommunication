@@ -17,6 +17,7 @@ namespace SerialCommunication
         public Form1()
         {
             InitializeComponent();
+            this.checkBoxDigital2.CheckedChanged += new EventHandler(this.checkBoxDigital2_CheckedChanged);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -114,5 +115,26 @@ namespace SerialCommunication
                 buttonConnect.Text = "Connect";
             }
         }
+
+        private void trackBarPWM9_Scroll(object sender, EventArgs e)
+        {
+            try
+            {
+                if (serialPortArduino != null && serialPortArduino.IsOpen)
+                {
+                    string commando = $"set pwm9 {trackBarPWM9.Value}";
+                    serialPortArduino.WriteLine(commando);
+                }
+                else
+                {
+                    MessageBox.Show("Serial port is not open.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fout bij het versturen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+    

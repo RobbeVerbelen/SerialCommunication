@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.timerOefening3 = new System.Windows.Forms.Timer(this.components);
+            this.timerOefening4 = new System.Windows.Forms.Timer(this.components);
+            this.timerOefening5 = new System.Windows.Forms.Timer(this.components);
             this.radioButtonVerbonden = new System.Windows.Forms.RadioButton();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.labelPoort = new System.Windows.Forms.Label();
@@ -175,6 +178,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1437, 770);
             this.tabControl.TabIndex = 9;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageInstellingen
             // 
@@ -662,6 +666,7 @@
             this.trackBarPWM9.Size = new System.Drawing.Size(452, 80);
             this.trackBarPWM9.TabIndex = 0;
             this.trackBarPWM9.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarPWM9.Scroll += new System.EventHandler(this.trackBarPWM9_Scroll);
             // 
             // pictureBox2
             // 
@@ -867,6 +872,24 @@
             this.serialPortArduino.ReadTimeout = 1000;
             this.serialPortArduino.WriteTimeout = 1000;
             // 
+            // timerOefening3
+            // 
+            this.timerOefening3.Interval = 1000;
+            this.timerOefening3.Enabled = false;
+            this.timerOefening3.Tick += new System.EventHandler(this.timerOefening3_Tick);
+            // 
+            // timerOefening4
+            // 
+            this.timerOefening4.Interval = 1000;
+            this.timerOefening4.Enabled = false;
+            this.timerOefening4.Tick += new System.EventHandler(this.timerOefening4_Tick);
+            // 
+            // timerOefening5
+            // 
+            this.timerOefening5.Interval = 1000;
+            this.timerOefening5.Enabled = false;
+            this.timerOefening5.Tick += new System.EventHandler(this.timerOefening5_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -978,6 +1001,9 @@
         internal System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel labelStatus;
+        private System.Windows.Forms.Timer timerOefening3;
+        private System.Windows.Forms.Timer timerOefening4;
+        private System.Windows.Forms.Timer timerOefening5;
         private System.IO.Ports.SerialPort serialPortArduino;
     }
 }
